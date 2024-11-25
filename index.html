@@ -7,29 +7,40 @@
     <title>TP1 : todolist</title>
 </head>
 <body>
-    <ul id="task-list">
-        <!-- Content is generated with JS -->
-    </ul>
+    <h1>To do List : TP n°1</h1>
 
-    <form action="" id="task-form">
-        <label for="text">Tâche : </label>
-        <input type="text" name="text" id="text">
+    <section>
+        <h2>Liste des tâches : </h2>
+        <ul id="task-list">
+            <!-- Content is generated with JS -->
+        </ul>
+    </section>
 
-        <label for="priority">Importance :</label>
-        <select name="priority" id="priority">
-            <option value="1">Haute</option>
-            <option value="2">Moyenne</option>
-            <option value="3">Basse</option>
-        </select>
+    <section>
+        <h2>Ajouter une tâche :</h2>
 
-        <input type="submit" value="Envoyer">
-    </form>
+        <form action="" id="task-form">
+            <label for="text">Tâche : </label>
+            <input type="text" name="text" id="text">
+    
+            <label for="priority">Importance :</label>
+            <select name="priority" id="priority">
+                <option value="1">Haute</option>
+                <option value="2">Moyenne</option>
+                <option value="3">Basse</option>
+            </select>
+    
+            <input type="submit" value="Envoyer">
+        </form>
+    </section>
 
-    <div>
+    <section>
+        <h2>Supprimer toutes les tâches effectuées</h2>
+
         <button id="delete-all-tasks-button">
-            Supprimer toutes les tâches
+            Supprimer
         </button>
-    </div>
+    </section>
 
     <script src="js/main.js"></script>
 </body>

@@ -93,7 +93,18 @@ function datbClickHandler() {
     
     tasks = tasks.filter((task)=>!ids.includes(task.id))
     displayTasks(tasks)
-    alert(`${ids.length} tâches ont été supprimées avec succès`)
+
+    let message = ""
+    if(ids.length == 0){
+        message = "Pas de tâche à effacer"
+    } else if (ids.length == 1){
+        message = "Une tâche supprimée avec succès" 
+    } else {
+        message = `${ids.length} tâches ont été supprimées avec succès`
+    }
+    
+    alert(message)
+
 }
 
 datb.addEventListener("click", datbClickHandler)
