@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <title>TP1 : todolist</title>
-</head>
-<body>
-    <h1>To do List : TP n°1</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/main.css" />
+        <title>TP1 : todolist</title>
+    </head>
+    <body>
+        <h1>To do List : TP n°1</h1>
 
-    <section>
-        <h2>Liste des tâches : </h2>
-        <ul id="task-list">
-            <!-- Content is generated with JS -->
-        </ul>
-    </section>
+        <section>
+            <h2>Liste des tâches :</h2>
+            <ul id="task-list">
+                <!-- Content is generated with JS -->
+            </ul>
+        </section>
 
-    <section>
-        <h2>Ajouter une tâche :</h2>
+        <section>
+            <h2>Ajouter une tâche :</h2>
 
-        <form action="" id="task-form">
-            <label for="text">Tâche : </label>
-            <input type="text" name="text" id="text">
-    
-            <label for="priority">Importance :</label>
-            <select name="priority" id="priority">
-                <option value="1">Haute</option>
-                <option value="2">Moyenne</option>
-                <option value="3">Basse</option>
-            </select>
-    
-            <input type="submit" value="Envoyer">
-        </form>
-    </section>
+            <form action="" id="task-form">
+                <div class="flex flex-wrap gap4 mb2">
+                    <div>
+                        <label for="text">Tâche : </label>
+                        <input type="text" name="text" id="text" />
+                    </div>
 
-    <section>
-        <h2>Supprimer toutes les tâches effectuées</h2>
+                    <div>
+                        <label for="priority">Importance :</label>
+                        <select name="priority" id="priority">
+                            <option value="1">Haute</option>
+                            <option value="2">Moyenne</option>
+                            <option value="3">Basse</option>
+                        </select>
+                    </div>
+                </div>
 
-        <button id="delete-all-tasks-button">
-            Supprimer
-        </button>
-    </section>
+                <div>
+                    <button type="submit">Envoyer</button>
+                </div>
+            </form>
+        </section>
 
-    <script src="js/main.js"></script>
-</body>
+        <section>
+            <h2>Supprimer toutes les tâches effectuées</h2>
+
+            <button id="delete-all-tasks-button">Supprimer</button>
+        </section>
+
+        <script src="js/main.js"></script>
+    </body>
 </html>

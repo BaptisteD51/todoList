@@ -9,3 +9,73 @@
 .priority-low{
     color:blue;
 }
+
+html{
+    background-color: lightskyblue;
+}
+
+body{
+    max-width: 800px;
+    margin:50px auto;
+    padding:50px;
+    border-radius: 50px;
+    background-color: cornflowerblue;
+}
+
+h1{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin:15px 0px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 9999px;
+}
+
+button{
+    background-color:darkblue;
+    color: white;
+    font-weight:bold;
+    padding:10px 20px;
+    border:solid darkblue 4px;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+button:hover{
+    border:solid darkblue 4px;
+    background-color: white;
+    color:darkblue;
+}
+
+/* Utilitary classes */
+.flex{
+    display:flex;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.gap4{
+    gap:40px;
+}
+
+.mb4{
+    margin-bottom: 40px;
+}
+
+.mb2{
+    margin-bottom: 20px;
+}
