@@ -21,6 +21,8 @@ let tasks = localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("
 
 let taskList = document.getElementById("task-list")
 let taskForm = document.getElementById("task-form")
+let inputText = taskForm.querySelector("input[type=text]")
+let select = taskForm.querySelector("select") 
 let datb = document.getElementById("delete-all-tasks-button")
 let dialog = document.querySelector("dialog")
 
@@ -81,6 +83,10 @@ function submitHandler(e) {
     })
 
     displayTasks(tasks)
+
+    // resets form values
+    inputText.value = ""
+    select.value = "1"
 }
 
 taskForm.addEventListener("submit", (e) => submitHandler(e))
