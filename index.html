@@ -10,14 +10,14 @@
         <h1>To do List : TP n°1</h1>
 
         <section>
-            <h2>Liste des tâches :</h2>
+            <h2>Liste des tâches</h2>
             <ul id="task-list">
                 <!-- Content is generated with JS -->
             </ul>
         </section>
 
         <section>
-            <h2>Ajouter une tâche :</h2>
+            <h2>Ajouter une tâche</h2>
 
             <form action="" id="task-form">
                 <div class="flex flex-wrap gap4 mb2">
@@ -37,7 +37,7 @@
                 </div>
 
                 <div>
-                    <button type="submit">Envoyer</button>
+                    <button type="submit">Ajouter</button>
                 </div>
             </form>
         </section>
@@ -47,6 +47,15 @@
 
             <button id="delete-all-tasks-button">Supprimer</button>
         </section>
+
+        <dialog close>
+            <form method="dialog">
+                <p><!-- Message created in JS --></p>
+                <div class="flex justify-center">
+                    <button>OK</button>
+                </div>
+            </form>
+        </dialog>
 
         <script src="js/main.js"></script>
     </body>

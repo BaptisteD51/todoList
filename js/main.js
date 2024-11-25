@@ -22,6 +22,7 @@ let tasks = localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("
 let taskList = document.getElementById("task-list")
 let taskForm = document.getElementById("task-form")
 let datb = document.getElementById("delete-all-tasks-button")
+let dialog = document.querySelector("dialog")
 
 function priorityClass(priority) {
     let pc = ""
@@ -103,9 +104,14 @@ function datbClickHandler() {
         message = `${ids.length} tâches ont été supprimées avec succès`
     }
     
-    alert(message)
-
+    display(message)
 }
+
+function display(message){
+    let p = dialog.querySelector("p")
+    dialog.showModal()
+    p.textContent = message
+} 
 
 datb.addEventListener("click", datbClickHandler)
 
