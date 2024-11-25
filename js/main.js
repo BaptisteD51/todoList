@@ -17,6 +17,7 @@ const defaultTasks = [
     },
 ]
 
+// retrieves added tasks if exist or set default tasks for demo 
 let tasks = localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : defaultTasks
 
 let taskList = document.getElementById("task-list")
@@ -26,6 +27,12 @@ let select = taskForm.querySelector("select")
 let datb = document.getElementById("delete-all-tasks-button")
 let dialog = document.querySelector("dialog")
 
+/**
+ * 
+ * @param { Number } priority 
+ * @returns { String }
+ * Returns a className to display a task with the righr color
+ */
 function priorityClass(priority) {
     let pc = ""
     switch (priority) {
@@ -42,17 +49,28 @@ function priorityClass(priority) {
     return pc
 }
 
+/**
+ * 
+ * @returns { number }
+ * Creates a random ID to easily target a task
+ */
 function randomId() {
     return Math.random() * Math.pow(10, 17)
 }
 
+/**
+ * 
+ * @param { Array } tasks 
+ * Creates the HTML markup for the task-list
+ */
 function displayTasks(tasks) {
-    // sort the tasks according to priority
+    // Sort the tasks according to priority, to display in the right order
     tasks = sortTasks(tasks)
 
-    // resets the HTML content
+    // Reset the HTML content of the list
     taskList.innerHTML = null
 
+    // Create a li elmt for each task
     for (task of tasks) {
         let li = document.createElement("li")
         let pc = priorityClass(task.priority)
@@ -66,9 +84,14 @@ function displayTasks(tasks) {
         taskList.appendChild(li)
     }
 
+    // Save tasks in local storage 
     localStorage.setItem("todoList", JSON.stringify(tasks))
 }
 
+/**
+ * 
+ * @param { Event } e 
+ */
 function submitHandler(e) {
     e.preventDefault()
 
@@ -76,31 +99,43 @@ function submitHandler(e) {
     let text = data.get("text")
     let priority = parseInt(data.get("priority"))
 
+    // add new tasks in the task array
     tasks.push({
         title: text,
         priority: priority,
         id: randomId(),
     })
 
+    // Reset the markup and save into Local Storage
     displayTasks(tasks)
 
-    // resets form values
+    // Resets form values
     inputText.value = ""
     select.value = "1"
 }
 
 taskForm.addEventListener("submit", (e) => submitHandler(e))
 
+/**
+ * Delete all tasks marked as done
+ */
 function datbClickHandler() {
+    // get all inputs and convert NodeList into an array to use filter
     let inputs = Array.from(document.querySelectorAll("#task-list input"))
+    // keep the inputs that are checked
     let checkedInputs = inputs.filter((input) => input.checked)
 
+    // Get all IDs of tasks marked as done
     let ids = []
     checkedInputs.forEach((input) => ids.push(parseInt(input.value)))
     
+    // Keep only the task that are not done
     tasks = tasks.filter((task)=>!ids.includes(task.id))
+    
+    // Update HTML and save in Local storage
     displayTasks(tasks)
 
+    // Create a confirmation message for the user
     let message = ""
     if(ids.length == 0){
         message = "Pas de tâche à effacer"
@@ -109,11 +144,15 @@ function datbClickHandler() {
     } else {
         message = `${ids.length} tâches ont été supprimées avec succès`
     }
-    
-    display(message)
+    displayMessage(message)
 }
 
-function display(message){
+/**
+ * 
+ * @param { String } message 
+ * Display a modal <dialog> tag with the message
+ */
+function displayMessage(message){
     let p = dialog.querySelector("p")
     dialog.showModal()
     p.textContent = message
@@ -121,6 +160,12 @@ function display(message){
 
 datb.addEventListener("click", datbClickHandler)
 
+/**
+ * 
+ * @param { Array } tasks 
+ * @returns { Array }
+ * Sorts the array of tasks according to the priority
+ */
 function sortTasks(tasks){
     tasks = tasks.sort((a,b)=>{
         if(a.priority == b.priority){
@@ -137,6 +182,6 @@ function sortTasks(tasks){
     return tasks
 }
 
-// Display the default tasks on load
+// Display the tasks on page load
 sortTasks(tasks)
 displayTasks(tasks)
