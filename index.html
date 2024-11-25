@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>TP1 : todolist</title>
+</head>
+<body>
+    <ul id="task-list">
+        <!-- Content is generated with JS -->
+    </ul>
+
+    <form action="" id="task-form">
+        <label for="text">Tâche : </label>
+        <input type="text" name="text" id="text">
+
+        <label for="priority">Importance :</label>
+        <select name="priority" id="priority">
+            <option value="1">Haute</option>
+            <option value="2">Moyenne</option>
+            <option value="3">Basse</option>
+        </select>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <div>
+        <button id="delete-all-tasks-button">
+            Supprimer toutes les tâches
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
